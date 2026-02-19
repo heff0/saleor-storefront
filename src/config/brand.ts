@@ -15,28 +15,28 @@
 
 export const brandConfig = {
 	/** Site name used in titles, metadata, and headers */
-	siteName: "Saleor Store",
+	siteName: "Heff.industries Store",
 
 	/** Legal entity name for copyright notices */
-	copyrightHolder: "Saleor Demo Store",
+	copyrightHolder: "Heff.industries",
 
 	/** Organization name for structured data (JSON-LD) */
-	organizationName: "Saleor Store",
+	organizationName: "Heff.industries",
 
 	/** Default brand name for products without a brand */
-	defaultBrand: "Saleor Store",
+	defaultBrand: "Heff.industries",
 
 	/** Tagline/description for the store */
-	tagline: "Premium products with exceptional quality. Discover our curated collection.",
+	tagline: "Heff.industries supplies several brands with products their consumers adore. Our Engineering, Your Brand.",
 
 	/** Homepage meta description */
-	description: "Starter pack for building performant e-commerce experiences with Saleor.",
+	description: "Heff.industries home page for building performant e-commerce experiences with Saleor.",
 
 	/** Logo aria-label for accessibility */
 	logoAriaLabel: "Store",
 
 	/** Title template - %s will be replaced with page title */
-	titleTemplate: "%s | Saleor Store",
+	titleTemplate: "%s | Heff.industries",
 
 	/** Social media handles */
 	social: {
