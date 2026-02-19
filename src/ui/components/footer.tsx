@@ -72,7 +72,7 @@ export async function Footer({ channel }: { channel: string }) {
 							<Logo className="h-7 w-auto" inverted />
 						</Link>
 						<p className="mt-4 max-w-xs text-sm leading-relaxed text-neutral-400">
-							Minimal design, maximum impact. Thoughtfully crafted essentials for everyday comfort.
+							Our Engineering, Your Brand. Private label or public, we deliver quality.
 						</p>
 					</div>
 
