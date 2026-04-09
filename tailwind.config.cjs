@@ -1,11 +1,7 @@
-import type { Config } from "tailwindcss";
-import containerQueries from "@tailwindcss/container-queries";
-import forms from "@tailwindcss/forms";
-import typography from "@tailwindcss/typography";
-import tailwindcssAnimate from "tailwindcss-animate";
-import definitions from "./src/lib/core/theme/themeUtils/definitions.json";
+const definitions = require("./src/lib/core/theme/themeUtils/definitions.json");
 
-export default {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
 	safelist: [
 		{
 			// TODO: refine pattern to be specific to definitions to further optimize CSS size
@@ -50,5 +46,10 @@ export default {
 			},
 		},
 	},
-	plugins: [typography, forms, containerQueries, tailwindcssAnimate],
-} satisfies Config;
+	plugins: [
+		require("@tailwindcss/typography"),
+		require("@tailwindcss/forms"),
+		require("@tailwindcss/container-queries"),
+		require("tailwindcss-animate"),
+	],
+};

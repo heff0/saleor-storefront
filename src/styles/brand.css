@@ -5,7 +5,7 @@
  *
  * This file defines the visual foundation of the storefront using
  * CSS custom properties. These tokens are consumed by Tailwind CSS
- * via the theme configuration in tailwind.config.ts.
+ * via the theme configuration in tailwind.config.cjs.
  *
  * Color Format: OKLCH (Oklab Lightness Chroma Hue)
  * - Modern perceptually uniform color space
