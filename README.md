@@ -1,4 +1,4 @@
-[![Deploy with Vercel](https://vercel.com/button)](<https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsaleor%2Fstorefront&env=NEXT_PUBLIC_SALEOR_API_URL,NEXT_PUBLIC_DEFAULT_CHANNEL&envDescription=API%20URL%20(e.g.%20https%3A%2F%2Fyour-instance.saleor.cloud%2Fgraphql%2F)%20and%20Channel%20slug%20(e.g.%20default-channel)&project-name=my-saleor-storefront&repository-name=my-saleor-storefront&demo-title=Saleor%20Next.js%20Storefront&demo-description=Starter%20pack%20for%20building%20performant%20e-commerce%20experiences%20with%20Saleor.&demo-url=https%3A%2F%2Fstorefront.saleor.io%2F&demo-image=https%3A%2F%2Fstorefront-d5h86wzey-saleorcommerce.vercel.app%2Fopengraph-image.png%3F4db0ee8cf66e90af>)
+[![Deploy with Vercel](https://vercel.com/button)](<https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsaleor%2Fstorefront&env=NEXT_PUBLIC_SALEOR_API_URL,NEXT_PUBLIC_DEFAULT_CHANNEL&envDescription=Your%20Saleor%20API%20URL%20is%20the%20GraphQL%20endpoint%20of%20your%20instance%20(e.g.%20https%3A%2F%2Fyour-instance.saleor.cloud%2Fgraphql%2F).%20The%20channel%20slug%20can%20be%20found%20in%20Saleor%20Dashboard%20under%20Configuration%20%3E%20Channels%20(e.g.%20default-channel).%20For%20multi-channel%20support%2C%20add%20SALEOR_APP_TOKEN%20after%20deploy.&envLink=https%3A%2F%2Fgithub.com%2Fsaleor%2Fstorefront%23environment-variables&project-name=my-saleor-storefront&repository-name=my-saleor-storefront&demo-title=Saleor%20Next.js%20Storefront&demo-description=Starter%20pack%20for%20building%20performant%20e-commerce%20experiences%20with%20Saleor.&demo-url=https%3A%2F%2Fstorefront.saleor.io%2F&demo-image=https%3A%2F%2Fstorefront-d5h86wzey-saleorcommerce.vercel.app%2Fopengraph-image.png%3F4db0ee8cf66e90af>)
 
 <img width="1920" height="1080" alt="saleor-storefront-paper-fin" src="https://github.com/user-attachments/assets/a8e37c20-35c8-42e0-a9c5-5c0b6097b921" />
 
@@ -7,12 +7,14 @@
 <div align="center">
 <img width="180" height="180" alt="apple-touch-icon-dark" src="https://github.com/user-attachments/assets/5327c1d3-86eb-4e5b-811a-81e8a5561d19" />
   <h1>Paper</h1>
-  <p>A minimal, production-ready storefront template for <a href="https://github.com/saleor/saleor">Saleor</a>.<br/>Clean as a blank page—and unlike most templates, it's not just for screenshots.</p>
+  <p>A minimal, production-ready storefront template for <a href="https://github.com/saleor/saleor">Saleor</a>.<br/>Clean as a blank page — built to ship.</p>
 </div>
 
 <br/>
 
 <div align="center">
+  <a href="https://saleor.io/start">Learn about headless storefronts</a>
+  <span> · </span>
   <a href="https://saleor.io/">Website</a>
   <span> · </span>
   <a href="https://docs.saleor.io/docs/3.x">Docs</a>
@@ -33,9 +35,9 @@
 
 **Ship faster, customize everything.** Paper is a new release—expect some rough edges—but every component is built with real-world e-commerce in mind. This is a foundation you can actually build on.
 
-### 🛒 Checkout That Actually Works
+### 🛒 Open Checkout
 
-The checkout is where most storefronts fall apart. Paper's doesn't.
+The checkout is where most storefronts fall apart or fall short. Paper's doesn't. We aim to provide open UI components and full wiring around the whole process.
 
 - **Multi-step, mobile-first** — Each step is a focused form. No infinite scrolling on phones.
 - **Guest & authenticated** — Seamless flow for everyone. Logged-in users get address book and saved preferences.
@@ -65,7 +67,8 @@ Not an afterthought. Focus management on step transitions, keyboard navigation e
 Built for front-end developers _and_ AI agents. The codebase includes:
 
 - **`AGENTS.md`** — Architecture overview and quick reference for AI assistants
-- **Skills system** — Task-specific guides in `.claude/skills/` for GraphQL workflows, component patterns, variant selection, and more
+- **[`skills/saleor-paper-storefront/`](skills/saleor-paper-storefront/)** — 11 task-specific rules covering GraphQL, caching, variant selection, checkout, and more
+- **[`.agents/skills/`](.agents/skills/)** — Installed community skills (Vercel React best practices, composition patterns)
 - **Consistent patterns** — Predictable structure that AI tools can navigate and modify confidently
 
 Whether you're pair-programming with Cursor, Claude, or Copilot—the codebase is designed to help them help you.
@@ -82,23 +85,24 @@ Whether you're pair-programming with Cursor, Claude, or Copilot—the codebase i
 
 ## What's in the Box
 
-| Feature              | Description                                                                     |
-| -------------------- | ------------------------------------------------------------------------------- |
-| **Checkout**         | Multi-step flow with guest/auth support, address selector, international forms  |
-| **Cart**             | Slide-over drawer with real-time updates, quantity editing                      |
-| **Product Pages**    | Multi-attribute variants, image gallery, sticky add-to-cart                     |
-| **Product Listings** | Category & collection pages with pagination                                     |
-| **Navigation**       | Dynamic menus from Saleor, mobile hamburger                                     |
-| **SEO**              | Metadata, JSON-LD, Open Graph images                                            |
-| **Caching**          | ISR with on-demand revalidation via webhooks                                    |
-| **Authentication**   | Login, register, password reset, order history                                  |
-| **API Resilience**   | Automatic retries, rate limiting, timeouts—handles flaky connections gracefully |
+| Feature              | Description                                                                       |
+| -------------------- | --------------------------------------------------------------------------------- |
+| **Checkout**         | Multi-step flow with guest/auth support, address selector, international forms    |
+| **Cart**             | Slide-over drawer with real-time updates, quantity editing                        |
+| **Product Pages**    | Multi-attribute variants, image gallery, sticky add-to-cart                       |
+| **Product Listings** | Category & collection pages with pagination                                       |
+| **Navigation**       | Dynamic menus from Saleor, mobile hamburger                                       |
+| **SEO**              | Metadata, JSON-LD, Open Graph images                                              |
+| **Caching**          | ISR with on-demand revalidation via webhooks                                      |
+| **Customer Profile** | Account dashboard, address book, order history, password change, account deletion |
+| **Authentication**   | Login, register, password reset, guest checkout                                   |
+| **API Resilience**   | Automatic retries, rate limiting, timeouts—handles flaky connections gracefully   |
 
 ---
 
 ## Caching Architecture
 
-Paper uses **Cache Components** (Partial Prerendering) for optimal performance—static shells load instantly while dynamic content streams in. Learn more in the [Next.js documentation](https://nextjs.org/docs/app/api-reference/directives/use-cache) or see [`.claude/skills/caching-strategy/SKILL.md`](.claude/skills/caching-strategy/SKILL.md) for project-specific implementation details.
+Paper uses **Cache Components** (Partial Prerendering) for optimal performance—static shells load instantly while dynamic content streams in. Learn more in the [Next.js documentation](https://nextjs.org/docs/app/api-reference/directives/use-cache) or see [`skills/saleor-paper-storefront/rules/data-caching.md`](skills/saleor-paper-storefront/rules/data-caching.md) for project-specific implementation details.
 
 The **display-cached, checkout-live** model ensures fast browsing with accurate checkout:
 
@@ -146,11 +150,14 @@ Without webhooks? TTL handles it—cached data expires naturally after 5 minutes
 - **Cart always fetches fresh**: Users see current prices before checkout
 - **Payment validates**: `checkoutComplete` uses real-time data
 
-> 📚 **Deep dive**: See `.claude/skills/caching-strategy/SKILL.md` for the full architecture, Cache Components (PPR), webhook setup, and debugging guide.
+> 📚 **Deep dive**: See [`skills/saleor-paper-storefront/rules/data-caching.md`](skills/saleor-paper-storefront/rules/data-caching.md) for the full architecture, Cache Components (PPR), webhook setup, and debugging guide.
 
 ---
 
 ## Quick Start
+
+> [!NOTE]
+> New to Saleor? Check out [saleor.io/start](https://saleor.io/start) to learn how storefronts work underneath.
 
 ### 1. Get a Saleor Backend
 
@@ -213,6 +220,7 @@ src/
 ├── graphql/                # GraphQL queries
 ├── gql/                    # Generated types (don't edit)
 ├── ui/components/          # UI components
+│   ├── account/            # Customer profile & address book
 │   ├── pdp/                # Product detail page
 │   ├── plp/                # Product listing page
 │   ├── cart/               # Cart drawer
@@ -225,7 +233,14 @@ src/
 If you're working with AI coding assistants, point them to:
 
 - **`AGENTS.md`** — Architecture, commands, gotchas
-- **`.claude/skills/`** — Task-specific guides (GraphQL, components, checkout, etc.)
+- **`skills/saleor-paper-storefront/`** — 11 project-specific rules (GraphQL, caching, checkout, etc.)
+- **`.agents/skills/`** — Installed community skills (React best practices, composition patterns)
+
+To install the project skill for agent auto-discovery:
+
+```shell
+npx skills add . --skill saleor-paper-storefront
+```
 
 ### Environment Variables
 
@@ -265,7 +280,6 @@ The design token system uses CSS custom properties—swap the entire color palet
 Features planned for future development:
 
 - **Filtering logic iteration.** Fetching attributes from API for dynamic product filters.
-- **Customer Profile.** Implementing new Past Orders and Address Book for signed-in customers.
 - **Paper App.** Iteration on the revalidation logic and supported webhooks, providing a _Preview in storefront_ feature in Saleor Dashboard.
 - **Opinionated model for standard content.** Moving currently hardcoded stuff like Credibility or Free checkout information to API models.
 

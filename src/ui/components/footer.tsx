@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { cacheLife, cacheTag } from "next/cache";
 import { LinkWithChannel } from "../atoms/link-with-channel";
 import { ChannelSelect } from "./channel-select";
 import { ChannelsListDocument, MenuGetBySlugDocument } from "@/gql/graphql";
 import { executePublicGraphQL } from "@/lib/graphql";
+import { CACHE_PROFILES, applyCacheProfile } from "@/lib/cache-manifest";
 import { CopyrightText } from "./copyright-text";
 import { Logo } from "./shared/logo";
 
@@ -26,8 +26,7 @@ const defaultFooterLinks = {
 /** Cached channels list - rarely changes */
 async function getChannels() {
 	"use cache";
-	cacheLife("days"); // Cache for 1 day
-	cacheTag("channels");
+	applyCacheProfile(CACHE_PROFILES.channels);
 
 	if (!process.env.SALEOR_APP_TOKEN) {
 		return null;
@@ -45,8 +44,7 @@ async function getChannels() {
 /** Cached footer menu */
 async function getFooterMenu(channel: string) {
 	"use cache";
-	cacheLife("hours"); // Cache for 1 hour
-	cacheTag("footer-menu");
+	applyCacheProfile(CACHE_PROFILES.footerMenu);
 
 	const result = await executePublicGraphQL(MenuGetBySlugDocument, {
 		variables: { slug: "footer", channel },
@@ -68,7 +66,7 @@ export async function Footer({ channel }: { channel: string }) {
 				<div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12">
 					{/* Brand */}
 					<div className="col-span-2 md:col-span-1">
-						<Link href={`/${channel}`} className="mb-4 inline-block">
+						<Link href={`/${channel}`} prefetch={false} className="mb-4 inline-block">
 							<Logo className="h-7 w-auto" inverted />
 						</Link>
 						<p className="mt-4 max-w-xs text-sm leading-relaxed text-neutral-400">
@@ -87,6 +85,7 @@ export async function Footer({ channel }: { channel: string }) {
 											<li key={child.id}>
 												<LinkWithChannel
 													href={`/categories/${child.category.slug}`}
+													prefetch={false}
 													className="text-sm text-neutral-400 transition-colors hover:text-neutral-200"
 												>
 													{child.category.name}
@@ -99,6 +98,7 @@ export async function Footer({ channel }: { channel: string }) {
 											<li key={child.id}>
 												<LinkWithChannel
 													href={`/collections/${child.collection.slug}`}
+													prefetch={false}
 													className="text-sm text-neutral-400 transition-colors hover:text-neutral-200"
 												>
 													{child.collection.name}
@@ -111,6 +111,7 @@ export async function Footer({ channel }: { channel: string }) {
 											<li key={child.id}>
 												<LinkWithChannel
 													href={`/pages/${child.page.slug}`}
+													prefetch={false}
 													className="text-sm text-neutral-400 transition-colors hover:text-neutral-200"
 												>
 													{child.page.title}
@@ -123,6 +124,7 @@ export async function Footer({ channel }: { channel: string }) {
 											<li key={child.id}>
 												<Link
 													href={child.url}
+													prefetch={false}
 													className="text-sm text-neutral-400 transition-colors hover:text-neutral-200"
 												>
 													{child.name}
@@ -146,6 +148,7 @@ export async function Footer({ channel }: { channel: string }) {
 										<li key={link.href}>
 											<Link
 												href={link.href}
+												prefetch={false}
 												className="text-sm text-neutral-400 transition-colors hover:text-neutral-200"
 											>
 												{link.label}
@@ -161,6 +164,7 @@ export async function Footer({ channel }: { channel: string }) {
 										<li key={link.href}>
 											<Link
 												href={link.href}
+												prefetch={false}
 												className="text-sm text-neutral-400 transition-colors hover:text-neutral-200"
 											>
 												{link.label}
@@ -191,11 +195,16 @@ export async function Footer({ channel }: { channel: string }) {
 					<div className="flex items-center gap-6">
 						<Link
 							href="/privacy"
+							prefetch={false}
 							className="text-xs text-neutral-500 transition-colors hover:text-neutral-300"
 						>
 							Privacy Policy
 						</Link>
-						<Link href="/terms" className="text-xs text-neutral-500 transition-colors hover:text-neutral-300">
+						<Link
+							href="/terms"
+							prefetch={false}
+							className="text-xs text-neutral-500 transition-colors hover:text-neutral-300"
+						>
 							Terms of Service
 						</Link>
 					</div>

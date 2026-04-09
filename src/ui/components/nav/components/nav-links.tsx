@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { cacheLife, cacheTag } from "next/cache";
 import { NavLink } from "./nav-link";
 import { executePublicGraphQL } from "@/lib/graphql";
 import { MenuGetBySlugDocument } from "@/gql/graphql";
+import { CACHE_PROFILES, applyCacheProfile } from "@/lib/cache-manifest";
 
 export const NavLinks = async ({ channel }: { channel: string }) => {
 	"use cache";
-	cacheLife("hours"); // 1 hour cache - navigation rarely changes
-	cacheTag("navigation"); // Tag for on-demand revalidation
+	applyCacheProfile(CACHE_PROFILES.navigation);
 
 	const result = await executePublicGraphQL(MenuGetBySlugDocument, {
 		variables: { slug: "navbar", channel },
@@ -48,7 +47,7 @@ export const NavLinks = async ({ channel }: { channel: string }) => {
 				}
 				if (item.url) {
 					return (
-						<Link key={item.id} href={item.url}>
+						<Link key={item.id} href={item.url} prefetch={false}>
 							{item.name}
 						</Link>
 					);
