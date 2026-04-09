@@ -66,6 +66,7 @@
 		"autoprefixer": "10.4.23",
 		"eslint": "9.39.1",
 		"eslint-config-next": "16.0.7",
+		"happy-dom": "20.8.9",
 		"husky": "8.0.3",
 		"knip": "5.41.1",
 		"lint-staged": "15.1.0",
